@@ -88,6 +88,14 @@ app.controller('SongCtrl', function($scope,Songs) {
     };
 
     $scope.reset();
+
+    // ==== REMOVE SONG ====
+    $scope.remove = function(index){
+        var song = $scope.songs[index];
+        Songs.remove({id: song._id}, function(){
+            $scope.songs.splice(index, 1);
+        })
+    }
 });
 
 

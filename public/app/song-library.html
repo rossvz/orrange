@@ -10,8 +10,11 @@
                 <strong>{{song.section}}</strong>: {{song.progression}} --- {{song.note}}
 
 
+
                 <md-divider ng-if="!$last"></md-divider>
             </div>
+
+            <img id="deleteIcon"  src="images/delete.png" ng-click="remove($index)" height="20px">
         </md-card-content>
     </md-card>
 </div>
