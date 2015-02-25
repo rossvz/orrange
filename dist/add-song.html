@@ -1,0 +1,60 @@
+<h1>Add A Song</h1>
+
+<div ng-controller="SongCtrl">
+  <form>
+    Title: <input type="text" ng-model="newSong.name" /><br>
+    BPM: <input type="number" ng-model="newSong.bpm" /><br>
+    Time Signature: <input type="radio" ng-model="newSong.timeSig" value="3/4" />3/4<br>
+    Time Signature: <input type="radio" ng-model="newSong.timeSig" value="4/4" />4/4<br>
+    Key: <input type="text" ng-model="newSong.key" /><br>
+
+    <input type="button" ng-click="reset()" value="Reset" />
+    <input type="submit" ng-click="save(newSong)" value="Save" />
+  </form>
+  <pre>New Song: {{newSong.name}}</pre>
+  <h3 ng-repeat="song in songs">{{song.name}}</h3>
+</div>
+
+
+
+<!--{-->
+<!--name: "Great Are You Lord",-->
+<!--bpm: 72,-->
+<!--timeSig: "6/8",-->
+<!--key: "D",-->
+<!--structure: [-->
+<!--{section: "Intro", progression: "IV vi V", note: "Light acoustic guitar and piano"},-->
+<!--{section: "Verse", progression: "IV vi V", note: "Same feel as intro"},-->
+<!--{section: "Chorus", progression: "IV vi V", note: ""},-->
+<!--{section: "Verse", progression: "IV vi V", note: "Drums and bass come in"},-->
+<!--{section: "Chorus", progression: "IV vi V", note: "Slightly higher dynamic feel"},-->
+<!--{section: "Chorus", progression: "IV vi V", note: "Bigger, building"},-->
+<!--{section: "Bridge", progression: "I ii IV I", note: "Drop. First time quiet, building"},-->
+<!--{section: "Chorus", progression: "IV vi V", note: "Full energy, crash out at end"}-->
+
+<!--]-->
+
+<!--}-->
+
+<!--<form>-->
+  <!--Song Title:-->
+  <!--<input ng-model="Songs.name" type="text"><br>-->
+  <!--BPM:-->
+  <!--<input ng-model="Songs.bpm" type="number"><br>-->
+  <!--Time Signature:<br>-->
+  <!--<input type="radio" value="3/4">3/4<br>-->
+  <!--<input type="radio" value="4/4">4/4<br>-->
+
+  <!--Key:-->
+  <!--<input ng-model="Songs.key" type="text"><br>-->
+  <!--Structure:-->
+  <!--<input ng-model="Songs.structure" type="text"><br>-->
+
+  <!--<h2>{{Songs.name}}</h2>-->
+
+  <!--BPM: {{Songs.bpm}}-->
+  <!--{{Songs.timeSig}}-->
+  <!--{{Songs.key}}-->
+  <!--{{Songs.structure}}-->
+
+
