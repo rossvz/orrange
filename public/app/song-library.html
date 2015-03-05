@@ -1,20 +1,42 @@
 <h1>Song Library</h1>
 <div ng-controller="SongCtrl">
+    <md-content>
     <md-card ng-repeat="song in songs">
         <md-card-content>
-            <h2>{{song.name}}</h2>
-            <em>Key of {{song.key}}</em>
-            <br>{{song.bpm}} BPM, {{song.timeSig}}
-
-            <div ng-repeat="song in song.structure" class="songStructure">
-                <strong>{{song.section}}</strong>: {{song.progression}} --- {{song.note}}
-
-
-
-                <md-divider ng-if="!$last"></md-divider>
-            </div>
-
             <img id="deleteIcon"  src="images/delete.png" ng-click="remove($index)" height="20px">
+            <h2>{{song.name}}</h2>
+            <em>Key of <strong>{{song.key}}</strong></em>
+            <br>{{song.bpm}} BPM, {{song.timeSig}} <br>
+            PARTS: {{song.parts}} <br>
+            STRUCTURE: {{song.structure}} <br>
+
+            {{song.structure.section}}
+
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Progression</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="part in song.parts">
+                    <td>{{part.section}}</td>
+                    <td>{{part.progression}}</td>
+                    <td>{{part.note}}</td>
+                </tr>
+                </tbody>
+            </table>
+                            <md-divider ng-if="!$last"></md-divider>
+
+
         </md-card-content>
     </md-card>
+    </md-content>
 </div>
+
+
+

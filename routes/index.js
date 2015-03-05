@@ -6,4 +6,9 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Orrange' });
 });
 
+//GET Beta Site
+router.get('/beta', function(req, res, next) {
+    res.render('beta', { title: 'orrange Beta' });
+});
+
 module.exports = router;
