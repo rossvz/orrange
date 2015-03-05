@@ -14,6 +14,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/home.html'
         })
 
+        .state('home.alpha',{
+            templateUrl:'app/home.alpha.html'
+        })
+
+        .state('home.beta',{
+            templateUrl:'app/home.beta.html'
+        })
+
         // ===== SONG LIBRARY ======
         .state('songLibrary',{
             url: '/songLibrary',
@@ -27,15 +35,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         });
     // =====  SET LIST ======
 
-
-
-
-
-
-
-
-
-
+    //THIS WILL BE IMPLEMENTED LATER
 
 });
 
@@ -52,33 +52,25 @@ app.factory('Songs', function($resource){
 // =========  CONTROLLER  ============
 app.controller('SongCtrl', function($scope,Songs) {
 
-    // ====== ANGULAR QUICK TEST =========
-    $scope.quickTest = "World! I'm working!";
-
+    $scope.parts = [{section: '',progression: '', note:''}];
     $scope.songs = Songs.query();
-
-
-
-    ////NEW SECTIONS IN NEW SONG
-    //$scope.newStructure = [{section: 'progression'}, {section: 'progression'}, {section: 'progression'}];
-    //$scope.newSection = function(){
-    //    var newSectionBox = $scope.newStructure.length+1;
-    //    $scope.newStructure.push({'section':'choice'+newSectionBox});
-    //}
-
 
     //SAVE AND RESET FUNCTIONS FOR NEW SONG ADDITION
 
-    $scope.save = function(newSong){
+    $scope.save = function(newSong,parts){
         if(!$scope.newSong || $scope.newSong.length < 1) return;
-        var song = new Songs(newSong);
+
+        var song = new Songs(newSong,parts);
 
         song.$save(function(){
             $scope.songs.push(song);
-            $scope.newTodo = ''; // clear textbox
+            $scope.songs.parts.push(parts);
+
         });
     };
-
+    $scope.addFields = function(parts){
+        parts.push({section: '',progression: '', note:''});
+    }
     $scope.reset = function(form) {
         if (form) {
             form.$setPristine();

@@ -2,7 +2,11 @@
   color: #EF9209 !important; }
 
 #deleteIcon {
-  margin-left: 90%;
+  margin-left: 98%;
   opacity: 0.5; }
+
+h2 {
+  margin-top: 0px !important;
+  padding-top: 0 !important; }
 
 /*# sourceMappingURL=ross.css.map */

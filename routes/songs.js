@@ -1,47 +1,22 @@
 var express = require('express');
 var router = express.Router();
-
+var requestsModule = require('./requestsModule')
 var mongoose = require('mongoose');
 var Song = require('../models/Song.js');
 
 /* GET /songs listing. */
-router.get('/', function(req, res, next) {
-    Song.find(function (err, songs) {
-        if (err) return next(err);
-        res.json(songs);
-    });
-});
+router.get('/', requestsModule.songList);
 
 /* POST /songs */
-router.post('/', function(req, res, next) {
-    Song.create(req.body, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
-    });
-});
+router.post('/', requestsModule.create);
 
 /* GET /songs/id */
-router.get('/:id', function(req, res, next) {
-    Song.findById(req.params.id, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
-    });
-});
+router.get('/:id', requestsModule.songId);
 
 /* PUT /songs/:id */
-router.put('/:id', function(req, res, next) {
-    Song.findByIdAndUpdate(req.params.id, req.body, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
-    });
-});
+router.put('/:id', requestsModule.putId);
 
 /* DELETE /songs/:id */
-router.delete('/:id', function(req, res, next) {
-    Song.findByIdAndRemove(req.params.id, req.body, function (err, post) {
-        if (err) return next(err);
-        res.json(post);
-    });
-});
+router.delete('/:id', requestsModule.delete);
 
 module.exports = router;
