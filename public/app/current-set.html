@@ -1,0 +1,41 @@
+<h1>Current Setlist</h1>
+<div ng-controller="SongCtrl" >
+    <md-content>
+        <md-card ng-repeat="song in songs | orderBy:'title'" ng-show="{{song.currentSet}}">
+            <md-card-content>
+                <img id="deleteIcon"  src="images/delete.png" ng-click="remove($index)" height="20px">
+                <img id="currentSet" src="images/currentset.png" ng-show="{{song.currentSet}}">
+                <h2 >{{song.name}}</h2>
+                <em>Key of <strong>{{song.key}}</strong></em>
+                <br>{{song.bpm}} BPM, {{song.timeSig}} <br>
+
+
+
+
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Measures</th>
+                        <th>Progression</th>
+                        <th>Notes</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr ng-repeat="part in song.parts" >
+                        <td>{{part.section}}</td>
+                        <td>{{part.measures}}</td>
+                        <td id="progDisplay">{{part.progression}}</td>
+                        <td>{{part.note}}</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+                <md-divider ng-if="!$last"></md-divider>
+
+
+            </md-card-content>
+        </md-card>
+    </md-content>
+</div>

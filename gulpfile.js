@@ -97,8 +97,7 @@ gulp.task('html', function () {
     // the next line to only include styles your project uses.
     .pipe($.if('*.css', $.uncss({
       html: [
-        'public/app/index.html',
-        'public/app/styleguide.html'
+        'index.ejs', 'public/app/*.html'
       ],
       // CSS Selectors for UnCSS to ignore
       ignore: [

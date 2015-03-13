@@ -7,17 +7,20 @@
     Time Signature: <input type="radio" ng-model="newSong.timeSig" value="3/4" />3/4<br>
     Time Signature: <input type="radio" ng-model="newSong.timeSig" value="4/4" />4/4<br>
     Key: <input type="text" ng-model="newSong.key" placeholder="Song Key Signature"/><br>
+    Add to Current Set?  <input type="checkbox" ng-model="newSong.currentSet" ngTrueValue="Part of Current Set">
 
 
       <h3>Structure</h3>
-      <img src="app/images/add.png" height=25px ng-click="addFields(parts)"/>
-      <img src="app/images/minus.png" height=25px ng-click="minusFields(parts)"/> <br>
+      <!--<img src="app/images/add.png" height=25px ng-click="addFields(parts)"/>-->
+      <!--<img src="app/images/minus.png" height=25px ng-click="minusFields(parts)"/> <br>-->
 
     <div id="enterParts" ng-repeat="part in parts">
         <input type="text" ng-model="part.section" placeholder="Section">
         <input type="text" ng-model="part.progression" placeholder="Progression">
         <input type="text" ng-model="part.note" placeholder="Notes">
         <input type="number" ng-model="part.measures" placeholder="Measures">
+        <img src="app/images/add.png" height=25px ng-click="addFields(parts)" ng-if="$last"/>
+        <img src="app/images/minus.png" height=25px ng-click="minusFields(parts)" ng-if="$last" /> <br>
         <md-divider></md-divider>
 
 
@@ -32,9 +35,6 @@
     <input type="submit" value="Save" />
   </form>
 
-    <div ng-repeat="part in parts">
-        {{part.section}} : {{part.progression}} : {{part.note}} for {{part.measures}} Measures.
-    </div>
 
     Song Library:
   <h3 ng-repeat="song in songs">{{song.name}}</h3>
