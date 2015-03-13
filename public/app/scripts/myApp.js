@@ -30,12 +30,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         // ===== ADD SONG ======
         .state('addSong',{
             url: '/addSong',
-            templateUrl: 'app/add-song.html',
+            templateUrl: 'app/add-song.html'
 
-        });
+        })
     // =====  SET LIST ======
 
-    //THIS WILL BE IMPLEMENTED LATER
+        .state('currentSet',{
+            url: '/currentSet',
+            templateUrl: 'app/current-set.html'
+    });
 
 });
 
@@ -52,25 +55,36 @@ app.factory('Songs', function($resource){
 // =========  CONTROLLER  ============
 app.controller('SongCtrl', function($scope,Songs) {
 
-    $scope.parts = [{section: '',progression: '', note:''}];
+    $scope.parts = [{section: '',progression: '', note:'', measures:''}];
     $scope.songs = Songs.query();
 
     //SAVE AND RESET FUNCTIONS FOR NEW SONG ADDITION
 
     $scope.save = function(newSong,parts){
+        newSong.parts = parts;
         if(!$scope.newSong || $scope.newSong.length < 1) return;
 
         var song = new Songs(newSong,parts);
 
+
         song.$save(function(){
             $scope.songs.push(song);
-            $scope.songs.parts.push(parts);
 
         });
     };
     $scope.addFields = function(parts){
-        parts.push({section: '',progression: '', note:''});
-    }
+        parts.push({section: '',progression: '', note:'',measures:''});
+    };
+
+    $scope.minusFields = function(parts){
+        parts.pop();
+    };
+
+    $scope.whatIsIt = function(newSong,parts){
+        console.log(newSong);
+        console.log(parts);
+    };
+
     $scope.reset = function(form) {
         if (form) {
             form.$setPristine();
