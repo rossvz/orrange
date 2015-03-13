@@ -1,29 +1,42 @@
 <h1>Song Library</h1>
 <div ng-controller="SongCtrl">
-    <md-card ng-repeat="song in songs">
+    <md-content>
+    <md-card ng-repeat="song in songs | orderBy:'title'">
         <md-card-content>
-            <h2>{{song.name}}</h2>
-            <em>Key of {{song.key}}</em>
-            <br>{{song.bpm}} BPM, {{song.timeSig}} <br>
-
-
-            <strong>{{song.structure.section}}</strong>: {{song.structure.progression}} --- {{song.structure.note}}
-
-            <div ng-repeat="section in songs.structure" class="songStructure">
-                <strong>{{song.structure.section}}</strong>: {{song.structure.progression}} --- {{song.structure.note}}
-
-
-
-                <md-divider ng-if="!$last"></md-divider>
-            </div>
-
             <img id="deleteIcon"  src="images/delete.png" ng-click="remove($index)" height="20px">
+            <h2>{{song.name}}</h2>
+            <em>Key of <strong>{{song.key}}</strong></em>
+            <br>{{song.bpm}} BPM, {{song.timeSig}} <br>
+            {{song.parts[0].notes}}
+
+
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Section</th>
+                        <th>Measures</th>
+                        <th>Progression</th>
+                        <th>Notes</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="part in song.parts" >
+                    <td>{{part.section}}</td>
+                    <td>{{part.measures}}</td>
+                    <td id="progDisplay">{{part.progression}}</td>
+                    <td>{{part.note}}</td>
+
+                </tr>
+                </tbody>
+            </table>
+                            <md-divider ng-if="!$last"></md-divider>
+
+
         </md-card-content>
     </md-card>
-
-
-    <h2>Planning Center Songs</h2>
-    <div ng-repeat="song in pcosongs">{{song.title}}</div>
+    </md-content>
 </div>
 
 

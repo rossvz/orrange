@@ -30,12 +30,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
         // ===== ADD SONG ======
         .state('addSong',{
             url: '/addSong',
-            templateUrl: 'app/add-song.html',
+            templateUrl: 'app/add-song.html'
 
-        });
+        })
     // =====  SET LIST ======
 
-    //THIS WILL BE IMPLEMENTED LATER
+        .state('currentSet',{
+            url: '/currentSet',
+            templateUrl: 'app/current-set.html'
+    });
 
 });
 

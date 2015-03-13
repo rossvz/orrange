@@ -7,7 +7,8 @@ var SongSchema = new mongoose.Schema({
     bpm: Number,
     timeSig: String,
     key: String,
-    parts: Array
+    parts: Array,
+    currentSet: Boolean
 });
 
 module.exports = mongoose.model('Song', SongSchema);

@@ -1,13 +1,14 @@
 <h1>Song Library</h1>
 <div ng-controller="SongCtrl">
     <md-content>
-    <md-card ng-repeat="song in songs">
+    <md-card ng-repeat="song in songs | orderBy:'title'">
         <md-card-content>
             <img id="deleteIcon"  src="images/delete.png" ng-click="remove($index)" height="20px">
-            <h2>{{song.name}}</h2>
+            <img id="currentSet" src="images/currentset.png" ng-show="{{song.currentSet}}">
+            <h2 >{{song.name}}</h2>
             <em>Key of <strong>{{song.key}}</strong></em>
             <br>{{song.bpm}} BPM, {{song.timeSig}} <br>
-            {{song.parts[0].notes}}
+
 
 
 
