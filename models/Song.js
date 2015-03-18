@@ -6,7 +6,9 @@ var SongSchema = new mongoose.Schema({
     name: String,
     bpm: Number,
     timeSig: String,
-    key: String,
+    keyRoot: String,
+    keySign: String,
+    keyMaj: String,
     parts: Array,
     currentSet: Boolean
 });

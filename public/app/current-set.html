@@ -11,28 +11,28 @@
 
 
 
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>Section</th>
+                            <th>Measures</th>
+                            <th>Progression</th>
+                            <th>Notes</th>
 
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Section</th>
-                        <th>Measures</th>
-                        <th>Progression</th>
-                        <th>Notes</th>
+                        </tr>
+                        </thead>
+                        <tbody class="table-striped">
+                        <tr ng-repeat="part in song.parts" >
+                            <td>{{part.section}}</td>
+                            <td>{{part.measures}}</td>
+                            <td id="progDisplay">{{part.progression}}</td>
+                            <td>{{part.note}}</td>
 
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr ng-repeat="part in song.parts" >
-                        <td>{{part.section}}</td>
-                        <td>{{part.measures}}</td>
-                        <td id="progDisplay">{{part.progression}}</td>
-                        <td>{{part.note}}</td>
-
-                    </tr>
-                    </tbody>
-                </table>
-                <md-divider ng-if="!$last"></md-divider>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
 
 
             </md-card-content>

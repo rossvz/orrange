@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "LearnSongs",
+  "name": "orrange",
   "launch_path": "/index.html",
   "description": "Learn and Perform Songs Easily",
   "icons": {
@@ -17,7 +17,7 @@
   "permissions": {},
   "locales": {
     "en": {
-      "name": "LearnSongs",
+      "name": "orrange",
       "description": "Learn and Perform Songs Easily"
     }
   }
