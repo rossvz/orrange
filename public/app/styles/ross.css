@@ -1,5 +1,6 @@
+/* Coolors Exported Palette - coolors.co/fa8334-fffd77-ffe882-388697-271033 */
 .app-bar .logo {
-  color: #EF9209 !important; }
+  color: #fa8334 !important; }
 
 #deleteIcon {
   margin-left: 98%;
@@ -10,12 +11,16 @@
   margin-top: 0px;
   margin-left: 85%; }
 
+.bottomRow {
+  margin-bottom: 13px; }
+
+#savebtn {
+  margin-top: 20px;
+  margin-left: 90%; }
+
 h2 {
   margin-top: 0px !important;
   padding-top: 0 !important; }
-
-#enterParts {
-  margin: 10px; }
 
 #progDisplay {
   word-spacing: 10px; }

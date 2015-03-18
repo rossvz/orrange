@@ -1,13 +1,33 @@
 <h1>Add A Song</h1>
 
 <div ng-controller="SongCtrl">
-  <form ng-submit="save(newSong,parts)" >
-    Title: <input required type="text" ng-model="newSong.name" placeholder="Song Title"/><br>
-    BPM: <input type="number" ng-model="newSong.bpm" placeholder="Beats Per Minute"/><br>
-    Time Signature: <input type="radio" ng-model="newSong.timeSig" value="3/4" />3/4<br>
-    Time Signature: <input type="radio" ng-model="newSong.timeSig" value="4/4" />4/4<br>
-    Key: <input type="text" ng-model="newSong.key" placeholder="Song Key Signature"/><br>
-    Add to Current Set?  <input type="checkbox" ng-model="newSong.currentSet" ngTrueValue="Part of Current Set">
+  <form  ng-submit="save(newSong,parts)" >
+      <div class="container addSongContainer">
+    <div class="input-group input-group-lg">
+        <span class="input-group-addon" id="title-addon1">Title</span>
+        <input required type="text" class="form-control" ng-model="newSong.name" placeholder="Song Title" aria-describedby="title-addon1"/>
+    </div>
+    <div class="row">
+        <div class="input-group input-group-lg">
+            <span class="input-group-addon" id="bpm-addon1">BPM</span>
+            <input type="number" class="form-control" ng-model="newSong.bpm" placeholder="Beats Per Minute" aria-describedby="bpm-addon1"/>
+            <span class="input-group-addon" id="44-addon1">4/4 <input type="radio"  ng-model="newSong.timeSig" value="4/4" aria-describedby="44-addon1"/></span>
+            <span class="input-group-addon" id="34-addon1">3/4 <input type="radio"  ng-model="newSong.timeSig" value="3/4" aria-describedby="34-addon1"/></span>
+            <span class="input-group-addon" id="68-addon1">6/8 <input type="radio"  ng-model="newSong.timeSig" value="6/8" aria-describedby="6/8-addon1"/></span>
+        </div>
+    </div>
+
+
+
+      <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="key-addon1">Key Signature</span>
+          <input type="text" class="form-control" ng-model="newSong.key" placeholder="Song Key Signature" aria-describedby="key-addon1"/>
+      </div>
+      <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="set-addon1">Add To Set?</span>
+          <input type="checkbox" class="form-control" ng-model="newSong.currentSet" ngTrueValue="Part of Current Set" aria-describedby="set-addon1"/>
+    </div>
+
 
 
       <h3>Structure</h3>
@@ -15,13 +35,37 @@
       <!--<img src="app/images/minus.png" height=25px ng-click="minusFields(parts)"/> <br>-->
 
     <div id="enterParts" ng-repeat="part in parts">
-        <input type="text" ng-model="part.section" placeholder="Section">
-        <input type="text" ng-model="part.progression" placeholder="Progression">
-        <input type="text" ng-model="part.note" placeholder="Notes">
-        <input type="number" ng-model="part.measures" placeholder="Measures">
-        <img src="app/images/add.png" height=25px ng-click="addFields(parts)" ng-if="$last"/>
-        <img src="app/images/minus.png" height=25px ng-click="minusFields(parts)" ng-if="$last" /> <br>
-        <md-divider></md-divider>
+        <div class="row structRow">
+        <div class="input-group col-md-6">
+            <span class="input-group-addon" id="section-addon1">Section</span>
+            <input type="text" class="form-control" ng-model="part.section" placeholder="Section" aria-describedby="section-addon1">
+        </div>
+
+        <div class="input-group col-md-6">
+            <span class="input-group-addon" id="prog-addon1">Progression</span>
+            <input type="text" class="form-control" ng-model="part.progression" placeholder="Progression" aria-describedby="prog-addon1">
+        </div>
+        </div>
+        <div class="row bottomRow">
+
+        <div class="input-group col-md-6">
+            <span class="input-group-addon" id="notes-addon1">Notes</span>
+            <input type="text" class="form-control" ng-model="part.note" placeholder="Notes" aria-describedby="notes-addon1">
+        </div>
+
+        <div class="input-group col-md-4">
+            <span class="input-group-addon" id="measures-addon1">Measures</span>
+            <input type="number" class="form-control" ng-model="part.measures" placeholder="Measures" aria-describedby="measures-addon1">
+
+        </div>
+
+        <div class="col-md-2">
+            <img src="app/images/add.png" height=25px ng-click="addFields(parts)" ng-if="$last"/>
+            <img src="app/images/minus.png" height=25px ng-click="minusFields(parts)" ng-if="$last" />
+        </div>
+
+
+        </div>
 
 
     </div>
@@ -30,13 +74,10 @@
 
 
 
-    <input type="button" ng-click="whatIsIt(newSong,parts)" value="WhatIsIt?">
-    <input type="button" ng-click="reset()" value="Reset" />
-    <input type="submit" value="Save" />
+        <!--<button class="btn btn-default" type="button" ng-click="reset()" value="Reset" />Reset-->
+        <button id="savebtn" class="btn btn-default" type="submit" value="Save" />Save
+      </div>
   </form>
 
-
-    Song Library:
-  <h3 ng-repeat="song in songs">{{song.name}}</h3>
 </div>
 

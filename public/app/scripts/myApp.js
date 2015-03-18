@@ -3,6 +3,9 @@
  */
 var app = angular.module('orrangeApp', ['ui.router', 'ngResource']);
 
+
+
+// ========  UI-ROUTER ========
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
 
@@ -14,12 +17,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
             templateUrl: 'app/home.html'
         })
 
-        .state('home.alpha',{
-            templateUrl:'app/home.alpha.html'
+        .state('login',{
+            url: '/login',
+            templateUrl:'app/login.html'
         })
 
-        .state('home.beta',{
-            templateUrl:'app/home.beta.html'
+        .state('signup',{
+            url:'/signup',
+            templateUrl:'app/signup.html'
+        })
+
+        .state('profile',{
+            url: '/profile',
+            templateUrl:'app/profile.html'
         })
 
         // ===== SONG LIBRARY ======
@@ -46,6 +56,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
 // =======  FACTORY  ===========
 app.factory('Songs', function($resource){
     return $resource('/songs/:id', null, {
+        'update' : { method: 'PUT'}
+    });
+
+});
+
+app.factory('Users', function($resource){
+    return $resource('/users/:id', null, {
         'update' : { method: 'PUT'}
     });
 
@@ -102,6 +119,12 @@ app.controller('SongCtrl', function($scope,Songs) {
             $scope.songs.splice(index, 1);
         })
     }
+});
+
+app.controller('UserCtrl',function($scope,Users){
+    $scope.message2 = "Hello World!";
+    $scope.users = Users.query();
+    console.log(users)
 });
 
 
