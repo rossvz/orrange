@@ -11,8 +11,8 @@
 
 
 
-
-            <table>
+<div class="table-responsive">
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Section</th>
@@ -22,7 +22,7 @@
 
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="table-striped">
                 <tr ng-repeat="part in song.parts" >
                     <td>{{part.section}}</td>
                     <td>{{part.measures}}</td>
@@ -32,6 +32,7 @@
                 </tr>
                 </tbody>
             </table>
+</div>
                             <md-divider ng-if="!$last"></md-divider>
 
 
