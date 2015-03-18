@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /*
  * Web Starter Kit
  *
@@ -1054,11 +1053,11 @@ div.highlight > pre > code .s, code .highlight .s {
 
 /* Literal.String */
 div.highlight > pre > code .na, code .highlight .na {
-  color: #008080; }
+  color: teal; }
 
 /* Name.Attribute */
 div.highlight > pre > code .nb, code .highlight .nb {
-  color: #0086B3; }
+  color: #0086b3; }
 
 /* Name.Builtin */
 div.highlight > pre > code .nc, code .highlight .nc {
@@ -1066,11 +1065,11 @@ div.highlight > pre > code .nc, code .highlight .nc {
 
 /* Name.Class */
 div.highlight > pre > code .no, code .highlight .no {
-  color: #008080; }
+  color: teal; }
 
 /* Name.Constant */
 div.highlight > pre > code .ni, code .highlight .ni {
-  color: #800080; }
+  color: purple; }
 
 /* Name.Entity */
 div.highlight > pre > code .ne, code .highlight .ne {
@@ -1090,7 +1089,7 @@ div.highlight > pre > code .nt, code .highlight .nt {
 
 /* Name.Tag */
 div.highlight > pre > code .nv, code .highlight .nv {
-  color: #008080; }
+  color: teal; }
 
 /* Name.Variable */
 /* Operator.Word */
@@ -1163,15 +1162,15 @@ div.highlight > pre > code .bp, code .highlight .bp {
 
 /* Name.Builtin.Pseudo */
 div.highlight > pre > code .vc, code .highlight .vc {
-  color: #008080; }
+  color: teal; }
 
 /* Name.Variable.Class */
 div.highlight > pre > code .vg, code .highlight .vg {
-  color: #008080; }
+  color: teal; }
 
 /* Name.Variable.Global */
 div.highlight > pre > code .vi, code .highlight .vi {
-  color: #008080; }
+  color: teal; }
 
 /* Name.Variable.Instance */
 div.highlight > pre > code .il, code .highlight .il {
@@ -1193,7 +1192,7 @@ div.highlight > pre > code .il, code .highlight .il {
     .editorial-header .container {
       position: relative; }
       .editorial-header .container::before {
-        content: "";
+        content: "\e003";
         font-family: "icons";
         font-size: 1000px;
         line-height: 0;
@@ -1590,7 +1589,7 @@ div.highlight > pre > code .il, code .highlight .il {
     .did-you-know__symbol {
       padding-bottom: 26px; } }
   .did-you-know__symbol::after {
-    content: "";
+    content: "\e014";
     color: #3372df;
     font-family: "icons";
     font-size: 300px;
@@ -1695,7 +1694,7 @@ div.highlight > pre > code .il, code .highlight .il {
       right: 230px; } }
   @media only screen and (min-width: 620px) {
     .next-lessons::after {
-      content: "";
+      content: "\e00e";
       font-family: "icons";
       font-size: 150px;
       right: 40px;
@@ -2019,16 +2018,16 @@ li > p {
 
 .button--primary {
   background: #4285f4;
-  color: #ffffff;
+  color: white;
   border: 1px solid #1266f1; }
 
 .button--secondary {
-  background: #ffffff;
+  background: white;
   color: #3372df;
   border: 1px solid #e6e6e6; }
 
 .button--secondary-variation {
-  background: #ffffff;
+  background: white;
   color: #3372df;
   border: 1px solid #e6e6e6;
   border-color: transparent; }
@@ -2335,7 +2334,7 @@ a:hover {
     font-family: "icons";
     line-height: 25px;
     font-size: 13px;
-    content: ""; }
+    content: "\e005"; }
 
 .cta--secondary {
   font-family: "Roboto Condensed", Helvetica, sans-serif;
@@ -3294,5 +3293,3 @@ main {
   font-weight: 700;
   src: url(/fonts/RobotoCondensed-BoldItalic.eot);
   src: local("Roboto Condensed Bold Italic"), local("RobotoCondensed-BoldItalic"), url(/fonts/RobotoCondensed-BoldItalic.eot) format("embedded-opentype"), url(/fonts/RobotoCondensed-BoldItalic.woff) format("woff"); }
-
-/*# sourceMappingURL=main.css.map */
