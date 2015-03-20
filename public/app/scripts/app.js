@@ -72,6 +72,8 @@ app.factory('Users', function($resource){
 // =========  CONTROLLER  ============
 app.controller('SongCtrl', function($scope,Songs) {
 
+    $scope.isCollapsed = true;
+
     $scope.parts = [{section: '',progression: '', note:'', measures:''}];
     $scope.songs = Songs.query();
 
@@ -95,11 +97,6 @@ app.controller('SongCtrl', function($scope,Songs) {
 
     $scope.minusFields = function(parts){
         parts.pop();
-    };
-
-    $scope.whatIsIt = function(newSong,parts){
-        console.log(newSong);
-        console.log(parts);
     };
 
     $scope.reset = function(form) {
