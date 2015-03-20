@@ -6681,6 +6681,7 @@ button.close {
 }
 .shadowCard h2 {
   text-align: center;
+  cursor: pointer;
 }
 .bottomRow {
   margin-bottom: 13px;
