@@ -3,11 +3,17 @@
 @import "variables";
 @import "bootstrap.custom.less";
 
+.RoundBorders(@radius){
+  border-radius: @radius;
+}
 
+.BoxShadow(@longness){
+  box-shadow: 2px 2px @longness #aaaaaa;
+}
 
 
 .app-bar .logo{
-  color: @color3 !important;
+  color: @color1 !important;
 }
 
 //CARDS
@@ -22,8 +28,9 @@
   margin-left: 85%;
 }
 
-#md-card {
-  //border: black;
+.shadowCard{
+  .RoundBorders(15px);
+  .BoxShadow(5px);
 }
 
 .bottomRow {

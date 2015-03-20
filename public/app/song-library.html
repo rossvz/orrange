@@ -1,7 +1,7 @@
 <h1>Song Library</h1>
 <div ng-controller="SongCtrl">
     <md-content>
-    <md-card ng-repeat="song in songs | orderBy:'title'">
+    <md-card class="shadowCard" ng-repeat="song in songs | orderBy:'title'">
         <md-card-content>
             <img id="deleteIcon"  src="images/delete.png" ng-click="remove($index)" height="20px">
             <img id="currentSet" src="images/currentset.png" ng-show="{{song.currentSet}}">

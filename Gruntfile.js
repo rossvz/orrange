@@ -15,26 +15,34 @@ module.exports = function(grunt) {
                 tasks: ['jshint']
             },
             styles: {
-                files: ['public/stylesheets/*'],
+                files: ['public/stylesheets/*.less'],
                 tasks: ['styles']
+            },
+            js: {
+                files: ['public/app/scripts/*.js'],
+                tasks: ['concat:lib','concat:app']
             }
         },
         concat: {
-            less: {
-                src: 'public/stylesheets/*.less',
-                dest: 'public/stylesheets/custom.less'
-            },
             css: {
-                src: 'public/stylesheets/*.css',
+                src: ['public/stylesheets/ross.css','public/stylesheets/main.css'],
                 dest: 'public/stylesheets/styles.css'
+            },
+            lib: {
+                src: ['public/app/scripts/main.js', 'public/app/scripts/bsimport.js'],
+                dest: 'public/app/scripts/lib.js'
+            },
+            app: {
+                src: ['public/app/scripts/myApp.js', 'public/app/scripts/myUsers.js'],
+                dest: 'public/app/scripts/app.js'
             }
 
 
         },
         less: {
             dist: {
-                src: 'public/stylesheets/custom.less',
-                dest: 'public/stylesheets/custom.css'
+                src: 'public/stylesheets/ross.less',
+                dest: 'public/stylesheets/ross.css'
             }
         },
         sass: {
@@ -45,8 +53,10 @@ module.exports = function(grunt) {
             }
         },
         cssmin: {
-            files: {
-                'public/stylesheets/styles.min.css' : 'public/stylesheets/styles.css'
+            dist: {
+                files: {
+                    'public/stylesheets/styles.min.css': 'public/stylesheets/styles.css'
+                }
             }
         }
 
@@ -61,6 +71,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['jshint']);
 
-    grunt.registerTask('styles', ['sass','concat:less','less','concat:css'])
+    grunt.registerTask('styles', ['sass','less','concat:css']);
 
 };
