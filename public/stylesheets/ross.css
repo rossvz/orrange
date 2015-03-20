@@ -6667,17 +6667,20 @@ button.close {
   color: #fa8334 !important;
 }
 #deleteIcon {
-  margin-left: 98%;
+  margin-left: 90%;
   opacity: 0.5;
 }
 #currentSet {
   height: 30px;
   margin-top: 0px;
-  margin-left: 85%;
+  margin-left: 5%;
 }
 .shadowCard {
   border-radius: 15px;
   box-shadow: 2px 2px 5px #aaaaaa;
+}
+.shadowCard h2 {
+  text-align: center;
 }
 .bottomRow {
   margin-bottom: 13px;

@@ -1,7 +1,7 @@
 /**
  * Created by Ross on 2/18/15.
  */
-var app = angular.module('orrangeApp', ['ui.router', 'ngResource']);
+var app = angular.module('orrangeApp', ['ui.router', 'ngResource','ui.bootstrap']);
 
 
 
@@ -71,6 +71,7 @@ app.factory('Users', function($resource){
 
 // =========  CONTROLLER  ============
 app.controller('SongCtrl', function($scope,Songs) {
+    $scope.isCollapsed = true;
 
     $scope.parts = [{section: '',progression: '', note:'', measures:''}];
     $scope.songs = Songs.query();
@@ -97,11 +98,6 @@ app.controller('SongCtrl', function($scope,Songs) {
         parts.pop();
     };
 
-    $scope.whatIsIt = function(newSong,parts){
-        console.log(newSong);
-        console.log(parts);
-    };
-
     $scope.reset = function(form) {
         if (form) {
             form.$setPristine();
@@ -120,6 +116,7 @@ app.controller('SongCtrl', function($scope,Songs) {
         })
     }
 });
+
 
 app.controller('UserCtrl',function($scope,Users){
     $scope.message2 = "Hello World!";
