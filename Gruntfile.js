@@ -24,10 +24,6 @@ module.exports = function(grunt) {
             }
         },
         concat: {
-            css: {
-                src: ['public/stylesheets/ross.css','public/stylesheets/main.css'],
-                dest: 'public/stylesheets/styles.css'
-            },
             lib: {
                 src: ['public/app/scripts/main.js', 'public/app/scripts/bsimport.js'],
                 dest: 'public/app/scripts/lib.js'
@@ -42,7 +38,7 @@ module.exports = function(grunt) {
         less: {
             dist: {
                 src: 'public/stylesheets/ross.less',
-                dest: 'public/stylesheets/ross.css'
+                dest: 'public/stylesheets/styles.css'
             }
         },
         sass: {
@@ -58,10 +54,12 @@ module.exports = function(grunt) {
                     'public/stylesheets/styles.min.css': 'public/stylesheets/styles.css'
                 }
             }
-        }
+        },
+        clean: ['public/stylesheets/styles.css']
 
     });
 
+    grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-contrib-jshint');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-concat');
@@ -71,6 +69,6 @@ module.exports = function(grunt) {
 
     grunt.registerTask('default', ['jshint']);
 
-    grunt.registerTask('styles', ['sass','less','concat:css']);
+    grunt.registerTask('styles', ['clean','less']);
 
 };
